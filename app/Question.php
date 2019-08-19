@@ -8,6 +8,7 @@ class Question extends Model
 {
     // Mass Assignment
     protected $fillable = ['title','body'];
+    protected $appends= ['create_date'];
     
     // one to many(inverse)
     public function user(){
@@ -41,10 +42,10 @@ class Question extends Model
         return clean(\Parsedown::instance()->text($this->body));
     }
     
-    public function Answers(){
+    public function answers(){
         return $this->hasMany(Answer::class);
     }
-    
+
     public function bestAcceptAnswer(Answer $answer){
         $this->best_answer_id = $answer->id;
         $this->save();

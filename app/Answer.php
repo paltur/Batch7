@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
    protected $fillable = ['body','user_id'];
+   protected $appends= ['create_date','body_html'];
    public function question(){
        return $this->belongsTo(Question::class);
    }

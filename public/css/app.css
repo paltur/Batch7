@@ -11729,3 +11729,7 @@ a.text-dark:focus {
   color: #38c172;
 }
 
+[v-cloak] {
+  display: none;
+}
+
